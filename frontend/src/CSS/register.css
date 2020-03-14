@@ -1,0 +1,78 @@
+.registerPageWrapper{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://chicagospiritualseekers.org/wp-content/uploads/2017/06/original.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.emailDiv{
+  position: absolute;
+  width: 40%;
+  height: 60%;
+  background-color: white;
+  left: 30%;
+  top: 20%;
+  border-radius: 20px;
+  transition-duration: 0.6s;
+}
+
+.registerInputs{
+  position: absolute;
+  width:40%;
+  top:47.5%;
+  left:30%;
+  height:5%;
+  outline: none;
+}
+
+
+.usernameDiv{
+  display:block;
+  position: absolute;
+  width: 40%;
+  height: 60%;
+  background-color: white;
+  left: 100%;
+  top: 20%;
+  border-radius: 20px;
+  transition-duration: 0.6s;
+}
+
+.passwordDiv{
+  display:none;
+  position: absolute;
+  width: 40%;
+  height: 60%;
+  background-color: white;
+  left: 100%;
+  top: 20%;
+  border-radius: 20px;
+  transition-duration: 0.6s;
+}
+
+.tagsDiv{
+  display:none;
+  position: absolute;
+  width: 40%;
+  height: 60%;
+  background-color: white;
+  left: 100%;
+  top: 20%;
+  border-radius: 20px;
+  transition-duration: 0.6s;
+}
+
+.nextButton{
+  position: absolute;
+  width:41%;
+  top:60%;
+  left:30%;
+  height:5%;
+  border:none;
+}
+
+#passwordinput{
+  top:40%;
+}

@@ -1,0 +1,282 @@
+.mainWrapper{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+}
+
+.topBar{
+  height: 5%;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+}
+
+#title{
+  position: absolute;
+  color: black;
+  font-size:1.5vw;
+  top:-1vh;
+  left: 5vw;
+}
+
+#active{
+  fill:red;
+}
+
+.sidebar{
+  position: absolute;
+  width: 13%;
+  height: 95%;
+  left: -15%;
+  background-color: white;
+  transition-duration: 0.6s;
+  z-index: 2;
+}
+
+.sidebarButton{
+  position: relative;
+  width: 100%;
+  top: 2%;
+  height: 5%;
+  border: none;
+  margin-bottom: 0px;
+  font-size: 1vw;
+  font-weight: 600;
+  background-color: transparent;
+  color: black;
+  fill: black;
+  outline: 0;
+}
+
+.sidebarButton:hover{
+  background-color: #f1f1f1;
+}
+
+.toggleSidebar{
+  position: absolute;
+  background-color: transparent;
+  color: black;
+  border: none;
+  font-size: 1.4vw;
+  top: 0.5%;
+  left: 1%;
+  outline: 0;
+}
+
+
+.feedWrapper{
+  position: absolute;
+  width:95%;
+  height: 95%;
+  background-color: #f8f8f8;
+  right: 0%;
+  bottom: 0%;
+  transition-duration: 0.6s;
+  overflow-y: scroll;
+  overflow-x:hidden;
+}
+
+#sidebarBottom{
+  position: absolute;
+  width: 100%;
+  height: 15%;
+  bottom: 0;
+}
+
+.linktext{
+  display: inline-block;
+  margin-right: 5px;
+  color: grey;
+  font-size: 0.8vw;
+  text-decoration: none;
+}
+
+
+.feedvideo{
+  width: 22.5%;
+  height: 35%;
+  display: inline-block;
+  margin-left: 2%;
+  margin-top: 2%;
+}
+
+#videoimg{
+  position: relative;
+  left: 12.5%;
+  width: 75%;
+  height: 55%;
+}
+
+#videotitle{
+  font-size: 0.8vw;
+  position: relative;
+  left: 20%;
+}
+
+.searchBar {
+  position: absolute;
+  height: 2%;
+  left: 35%;
+  top: 1%;
+  width: 25%;
+  border: none;
+  outline: 0;
+  padding-left: 20px;
+  font-size: 0.8vw;
+  color: black;
+  border:2px solid rgb(233, 233, 233);
+}
+
+.searchResults {
+  position: absolute;
+  display:none;
+  overflow-y: scroll;
+  width: 31%;
+  max-height: 50%;
+  left: 35%;
+  background-color: white;
+  z-index: 3;
+}
+
+#searchresultdiv{
+  display:inline-block;
+  position: relative;
+  height:10%;
+  width:100%;
+  background-color: white;
+}
+
+.smallSidebar{
+  position: absolute;
+  width:5%;
+  height:95%;
+  z-index:2;
+  background-color: white;
+  transition-duration: 0.4s;
+}
+
+.smallSidebarButton{
+  position: relative;
+  width: 100%;
+  top: 2%;
+  height: 5%;
+  border: none;
+  margin-bottom: 0px;
+  font-size: 0.6vw;
+  font-weight: 600;
+  background-color: transparent;
+  color: black;
+  fill: black;
+  outline: 0;
+}
+
+.smallSidebarButton:hover{
+  background-color: #ebebeb;
+}
+
+.registerButton{
+  position: absolute;
+  right:2%;
+  top:1%;
+  height:3vh;
+  width:10vw;
+  border-radius: 100px;
+  border:none;
+  background-color:grey;
+  color:white;
+}
+.loginButton{
+  position: absolute;
+  right:13%;
+  top:1%;
+  height:3vh;
+  width:10vw;
+  border-radius: 100px;
+  border:none;
+  background-color:grey;
+  color:white;
+}
+
+.accountButton{
+  position: absolute;
+  right:3%;
+  top:1%;
+  height:3%;
+  width:5%;
+  border:none;
+  background-color:grey;
+  color:white;
+  display:none;
+}
+
+.loginPop {
+  display:none;
+  background-image: url('https://chicagospiritualseekers.org/wp-content/uploads/2017/06/original.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  height: 60%;
+  width: 50%;
+  right: 25%;
+  top: 20%;
+  border-radius:20px;
+  border:none;
+}
+
+.usernameInput {
+  position: absolute;
+  height: 5%;
+  left: 35%;
+  top: 43%;
+  width: 30%;
+  border: none;
+  outline: 0;
+  padding-left: 20px;
+  font-size: 0.8vw;
+  color: black;
+}
+
+.passwordInput {
+  position: absolute;
+  height: 5%;
+  left: 35%;
+  top: 50%;
+  width: 30%;
+  border: none;
+  outline: 0;
+  padding-left: 20px;
+  font-size: 0.8vw;
+  color: black;
+}
+
+
+.loginPopupButton{
+  position: absolute;
+  height: 5%;
+  left: 35%;
+  top: 60%;
+  width: 32.3%;
+  border:none;
+}
+
+.closeLoginPopup{
+  position: absolute;
+  right:1%;
+  top:1%;
+  background-color: transparent;
+  border:none;
+  font-size:1vw;
+}
+
+
+.uploadButton{
+  position: absolute;
+  right:10%;
+  top:1%;
+  height:3%;
+  width:5%;
+  border:none;
+  background-color:grey;
+  color:white;
+  display:none;
+}

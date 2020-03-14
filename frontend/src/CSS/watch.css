@@ -1,0 +1,28 @@
+.watchWrapper{
+    width:100%;
+    height:100%;
+    position: absolute;
+    background-color:white;
+}
+
+.videoPlayer{
+    position: absolute;
+    top:10%;
+    width:60%;
+    left:5%;
+}
+
+.videoTitle{
+    position: absolute;
+    top:67%;
+    left:5%;
+    font-size:1.8vw;
+}
+
+.videoDes{
+    position: absolute;
+    left:5%;
+    top:72%;
+    width:60%;
+    height:20%;
+}
