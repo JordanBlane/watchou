@@ -41,64 +41,62 @@ export class UploadPage extends React.Component {
         this.setState({user : dec.user[0]})
       })
     }else{
-        window.location.href = `http://${hostname}:3000/`
+        window.location.href = `http://${hostname}/`
     }
 }
 
+handleEventVideo = (event) => {
+    var percentage = Math.round((event.loaded / event.total) * 100)
+    console.log(`${event.type} : ${percentage} % Bytes Loaded`)
+}
+
   video = (e) => {
+    var acceptedTypes = ['mp4','avi','mov','x-matroska']
+    if(acceptedTypes.indexOf(e.target.files[0].type.split('/').pop()) == -1)
+    {
+      return console.log('not accepted wrong file type type=' + e.target.files[0].type)
+    
+    }
+    console.log('aa')
     var file = e.target.files
 
     let reader = new FileReader();
+    reader.addEventListener('progress', this.handleEventVideo);
     reader.readAsDataURL(file[0])
     
     reader.onload = (e) => {
         this.setState({video:e.target.result})
+        document.getElementById('aboutVideoDiv').style.display = 'block'
+        document.getElementById('uploadFileDiv').style.display = 'none'
     }
   }
 
+
   thum = (e) => {
-      var file = e.target.files
+    var acceptedTypes = ['jpeg','png']
+    if(acceptedTypes.indexOf(e.target.files[0].type.split('/').pop()) == -1)
+    {
+      return console.log('not accepted wrong file type')
+    }
+    console.log('aa')
+    var file = e.target.files
 
-      let reader = new FileReader();
-      reader.readAsDataURL(file[0])
+    let reader = new FileReader();
+    reader.readAsDataURL(file[0])
 
-      reader.onload = (e) => {
-          this.setState({thum:e.target.result})
-      }
+    reader.onload = (e) => {
+        this.setState({thum:e.target.result})
+    }
   }
 
   upload = () => {
       var title = document.getElementById('titleInput').value
       var des = document.getElementById('desInput').value
       var tags = document.getElementById('tagsInput').value
-
       if(title && des && tags)
       {
         if(this.state.video != '' && this.state.thum != '')
         {
-            console.log('video and thum entered')
-            //check to see if uploaded file to thum is a valid type
-            var thum = document.getElementById('thumInput').value
-            var thumindex = thum.lastIndexOf('.')
-            var thumext = thum.substring(thumindex,thum.length)
-            var validthum = ['.png','.jpeg']
-            if(validthum.indexOf(thumext) == -1)
-            {
-                console.log('not the right thum ext')
-                return false;
-            }
-
-            //check to see if uploaded file to video is a valid type
-            var video = document.getElementById('videoInput').value
-            var videoindex = video.lastIndexOf('.')
-            var videoext = video.substring(videoindex,video.length)
-            var validvideo = ['.mp4','.mov','.avi']
-            if(validvideo.indexOf(videoext) == -1)
-            {
-                console.log('not the right video ext')
-                return false;
-            }
-
             //SEND REQUEST
             var formData = {videoname:title,videodes:des,channel:this.state.user.token,tags:tags}
             var message = {data:formData,token:process.env.REACT_APP_SECRET_TOKEN_CODE}
@@ -107,12 +105,15 @@ export class UploadPage extends React.Component {
             cipher = cipher.replace(/[+]/g,'☆')
             var obj = {file:this.state.video,thum:this.state.thum,cipher}
             const url = `http://${hostname}:4000/api/upload`
-  
+
+            console.log('a')
+
             return post(url,obj)
             .then(response => {
                 if(response.status == 200)
                 {
-                    window.location.href = `http://${hostname}:3000/`
+                    console.log('a')
+                    window.location.href = `http://${hostname}/`
                 }
                 else{
                     //show upload error
@@ -135,16 +136,19 @@ export class UploadPage extends React.Component {
   render(){
     return(
         <div className="uploadPageWrapper">
-            <h1 className="uploadTitle">Upload</h1>
-            <h1 className="videoTitle">Video</h1>
-            <input className="fileBtn" type='file' id='videoInput' onChange={(e)=>this.video(e)}/>
-            <h1 className="thumbTitle">Thumb Nail</h1>
-            <input className="thumbBtn" type='file' id='thumInput' onChange={(e)=>this.thum(e)}/>
-            <input className="videoDescInputs" id='titleInput' placeholder='Title'/>
-            <input className="videoDescInputs" id='desInput' placeholder='Description'/>
-            <input className="videoDescInputs" id='tagsInput' placeholder='Tags'/>
+            <div className="uploadFileDiv" id='uploadFileDiv'>
+                <h1 className="videoAboutTitle">Upload</h1>
+                <input className="fileButton" name="videoInput" type='file' id='videoInput' onChange={(e)=>this.video(e)}/>
+                <label for="videoInput" className="videoInputButton" id="videoInputButton"><span className="videoInputButtonText" id="videoInputButtonText">Select File</span></label>
+            </div>
+            <div className="aboutVideoDiv" id='aboutVideoDiv'>
+                <input className="thumbButton" type='file' id='thumInput' placeholder="Thumbnail" onChange={(e)=>this.thum(e)}/>
+                <input className="titleInput" id='titleInput' placeholder='Title'/>
+                <input className="desInput" id='desInput' placeholder='Description'/>
+                <input className="tagsInput" id='tagsInput' placeholder='Tags'/>
 
-            <button className="uploadBtn" onClick={()=>{this.upload()}}>Upload</button>
+                <button className="uploadBtn" onClick={()=>{this.upload()}}>Upload</button>
+            </div>
         </div>
     )
   }
