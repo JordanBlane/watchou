@@ -15,7 +15,7 @@ function get_connection(){
     return mysql.createConnection({
         host: 'localhost',
         user: 'root',
-        password: '26265071',
+        password: 'Password',
         database: 'watchou',
         charset : 'utf8mb4'
     })
